@@ -6,5 +6,7 @@ layout: post
 
 C/C++最终都会编译成汇编代码，我们将通过汇编来理解C/C++的函数机制，选择的平台是X86 64上的LLVM C++
 
-### 程序空间
+### 地址空间
 <img src="/images/address-space.png" height="150" width="150" />
+
+Linux中的每个进程都有自己的地址空间，从低到高一次是代码段、数据段、堆和栈，栈是朝下增长的。
