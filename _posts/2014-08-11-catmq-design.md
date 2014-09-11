@@ -1,3 +1,8 @@
+---
+layout: post
+title: CatMQ design
+---
+
 # CatMQ design
 
 CatMQ is an easy-use message queue, suitable for small or middle sized companies.
