@@ -83,7 +83,7 @@ ul.posts {
   text-align: justify;
   width: 40em;
   margin: 3em auto 2em auto;
-  line-height: 2em;
+  line-height: 150%;
 }
 
 .title {
