@@ -148,12 +148,12 @@ ul.posts {
 
   #post h1 {
   	font-size: 1.4em;
-	  margin-bottom: 1.2em;
+	  margin: 0.5em;
   }
 
   #post h2 {
 	  font-size: 1.2em;
-	  margin-bottom: 1em;
+	  margin: 0.3em;
   }
 
   #post h3 {
