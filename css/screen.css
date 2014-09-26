@@ -151,8 +151,17 @@ ul.posts {
   /* standard */
 
   #post h1 {
-	  font-size: 1.2em
+  	font-size: 2em;
   }
+
+  #post h2 {
+	  font-size: 1.2em;
+  }
+
+  #post h3 {
+	  font-size: 1em;
+  }
+
   #post pre {
     border: 1px solid #ddd;
     background-color: #eef;
