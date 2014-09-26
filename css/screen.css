@@ -63,7 +63,7 @@ ul.posts {
 }
 
   ul.posts li {
-    line-height: 1.73em;
+    line-height: 150%;
   }
 
   ul.posts span {
