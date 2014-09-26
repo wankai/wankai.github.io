@@ -158,6 +158,14 @@ ul.posts {
 	  font-size: 1em;
   }
 
+  #post h1 h2 h3 h4 {
+	  margin-bottom: 1em;
+  }
+
+  #post p {
+	  margin-bottom: 0.5em;
+  }
+
   #post pre {
     border: 1px solid #ddd;
     background-color: #eef;
