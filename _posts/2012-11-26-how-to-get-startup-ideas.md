@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 怎么获得创业点子
 ---
 
 #怎样获得创业idea
