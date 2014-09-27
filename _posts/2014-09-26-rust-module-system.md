@@ -29,3 +29,23 @@ pub fn hello() {
 }
 ```
 运行 `rustc hello.rs --crate-type=lib` 会生成同名的库libhello.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
+
+### 引入命名空间
+Rust的模块就是命名空间，用关键词`mod`表示
+
+``` greeting.rs
+pub mod greeting {
+    pub mod english {
+        pub fn println("hello, english world")
+    }
+    pub mod chinese {
+        pub fn println("hello, chinese world")
+    }
+}
+```
+
+### 打散命名空间
+
+### 提升命名空间
+
+### 提升
