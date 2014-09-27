@@ -28,4 +28,4 @@ pub fn hello() {
     println!("hello, rust");
 }
 ```
-运行 `rustc hello.rs --lib` 会生成同名的库libhello.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
+运行 `rustc hello.rs --crate-type=lib` 会生成同名的库libhello.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
