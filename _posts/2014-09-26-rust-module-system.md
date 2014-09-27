@@ -24,8 +24,8 @@ fn main() {
 运行`rustc hello.rs`会生成同名的可执行文件hello
 
 ``` hello.rs
-fn hello() {
+pub fn hello() {
     println!("hello, rust");
 }
 ```
-运行 `rustc hello.rs --lib` 会生成同名的库
+运行 `rustc hello.rs --lib` 会生成同名的库libhello.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
