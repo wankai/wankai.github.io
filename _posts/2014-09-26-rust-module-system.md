@@ -26,6 +26,7 @@ fn main() {
 运行`rustc hello.rs`会生成同名的可执行文件hello
 
 <strong>库</strong>
+
 ``` hello.rs
 fn hello() {
     println!("hello, rust");
