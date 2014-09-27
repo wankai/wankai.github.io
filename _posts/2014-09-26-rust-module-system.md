@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rust模块化机制"
-date: 2014-09-25
+date: 2014-09-26
 ---
 
 ## Rust模块化机制
