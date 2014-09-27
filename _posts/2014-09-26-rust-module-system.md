@@ -169,10 +169,12 @@ english模块添加了两个pub use语句后，两个问候函数就提升到eng
 
 3. 每一个crate都有一个匿名的根命名空间，命名空间可以无限嵌套
 
-4. "mod mod-name { ...  }" 将大括号中得代码置于命名空间mod-name之下
+4. "mod mod-name { ...  }" 将大括号中的代码置于命名空间mod-name之下
 
-5. "use mod-name1::mod-name2" 可以打开命名空间，减少无休止的::操作符
+5. "use mod-name1::mod-name2;" 可以打开命名空间，减少无休止的::操作符
 
 6. "mod mod-name;" 可以指导编译器将多个文件组装成一个文件
 
-7. "pub use mod-nam1::mod-name2::item-name" 语句可以将mod-name2下的item-name提升到这条语句所在的空间，item-name通常是函数或者结构体。Rust社区通常用这个方法来缩短库API的命名空间深度
+7. "pub use mod-nam1::mod-name2::item-name;" 语句可以将mod-name2下的item-name提升到这条语句所在的空间，item-name通常是函数或者结构体。Rust社区通常用这个方法来缩短库API的命名空间深度
+
+8. 编译器规定use语句一定要在mod语句之前
