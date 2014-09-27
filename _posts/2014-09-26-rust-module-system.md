@@ -12,20 +12,23 @@ date: 2014-09-25
 
 
 ### 编译
-Rust编译器只接受一个.rs文件作为输入，并且只生成一个crate。
+Rust编译器只接受一个.rs文件作为输入，并且只生成一个crate。这一点要牢记。
 
-<img src="/images/rustc.png" width="450px" height="140px" />
+生成的crate分两种，源文件中有main函数会生成可执行文件，无main函数则生成库。
 
-有两种crate，可执行文件和库，源文件中有main函数则生成可执行文件，没有则生成库。
+<strong>可执行文件</strong>
 
-#### 可执行文件
 ``` hello.rs
 fn main() {
     println!("hello, rust");
 }
 ```
-> rustc hello.rs
+运行`rustc hello.rs`会生成同名的可执行文件hello
 
-> ls -l
-
-> -rwxr-xr-- 1 wankai staff 706832 9 27 14:34 hello
+<strong>库</strong>
+``` hello.rs
+fn hello() {
+    println!("hello, rust");
+}
+```
+运行`rustc hello.rs --lib`会生成同名的库
