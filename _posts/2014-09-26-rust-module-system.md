@@ -161,8 +161,6 @@ pub mod farewells;
 
 english模块添加了两个pub use语句后，两个问候函数就提升到english空间中去了，我们可以用phrases::english::hello()来代替phrases::english::greetings::hello()
 
-最终完整的phrases项目在[这里](http://github.com/wankai/rust-module-example)
-
 
 ### 总结
 1. Rust Module就是命名空间，没别的意思
@@ -184,3 +182,4 @@ english模块添加了两个pub use语句后，两个问候函数就提升到eng
 ### 参考资料
 
 * [module guide written by steveklabnik](https://github.com/steveklabnik/rust/blob/module_guide/src/doc/guide-crates.md)
+* [phrases项目的最终版本](https://github.com/wankai/rust-module-example)
