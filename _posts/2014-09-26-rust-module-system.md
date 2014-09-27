@@ -44,18 +44,18 @@ Rust的模块就是命名空间，用关键词`mod`表示。它的作用是把�
 // greeting.rs
 pub mod english {
     pub mod greetings {
-        fn hello() {
+        pub fn hello() {
             println!("Hello!")
         }
-        fn guies() {
+        pub fn guies() {
            println!("Hey, guies!")
         }
     }
     pub mod farewells {
-        fn goodbye() {
+        pub fn goodbye() {
             println!("Goodbye!")
         }
-        fn see_you() {
+        pub fn see_you() {
             println!("See you!")
         }
     }
@@ -63,18 +63,18 @@ pub mod english {
 
 pub mod chinese {
     pub mod greetings {
-        fn hello() {
+        pub fn hello() {
             println!("你好!")
         }
-        fn eat() {
+        pub fn eat() {
             println!("吃了么?")
         }
     }
     pub mod farewells {
-        fn goodbye() {
+        pub fn goodbye() {
             println!("再见!")
         }
-        fn everyone_will_know_you() {
+        pub fn everyone_will_know_you() {
             println("天下谁人不识君!")
         }
     }
@@ -89,14 +89,14 @@ pub mod chinese {
 
 ```
 // 朋友分别，请用下面两句
-phrases::chinese::greetings::goodbye()
-phrases::chinese::greetings::everyone_will_know_you()
+phrases::chinese::farewells::goodbye()
+phrases::chinese::farewells::everyone_will_know_you()
 
 // 如果不想敲这么多重复的命名空间，请用use
-use phrases::chinese::greetings;
+use phrases::chinese::farewells;
 
-greetings::goodbye();
-greetings::everyone_will_know_you();
+farewells::goodbye();
+farewells::everyone_will_know_you();
 
 ```
 
