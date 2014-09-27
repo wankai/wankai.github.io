@@ -31,7 +31,7 @@ pub fn hello() {
 运行 `rustc greeting.rs --crate-type=lib` 会生成同名的库libgreeting.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
 
 ### 引入命名空间
-Rust的模块就是命名空间，用关键词`mod`表示。它的作用是把一个crate的代码划分成可管理的部分。每一个crate都有一个顶层的匿名根命名空间, 根空间下面的命名空间可以任意嵌套，这样构成一个树形的空间结构。
+Rust的模块就是命名空间，用关键词`mod`表示。它的作用是把一个crate的代码划分成可管理的部分。每一个crate都有一个顶层的匿名根命名空间, 根空间下面的命名空间可以任意嵌套，这样构成一个树形结构。
 
 假设我们接到一个项目，制作一个包含各国语言日常用语的程序库。
 
@@ -144,4 +144,21 @@ pub fn see_you() {
 
 
 ### 提升命名空间
+
+编译器的机制决定，除了mod.rs外，每一个文件和目录都是一个模块。有时候我们只是想分拆文件，但是不想添加新的模块。编译器像个暴君一样，说：“在我的国家，不允许干这样的事儿。”
+
+不过也不是没有变通的机制，`pub use`就是惯用手法。
+
+```
+// english/mod.rs
+
+pub use self::greetings::hello;
+pub use self::greetings::goodbye;
+
+pub mod greetings;
+pub mod farewells;
+```
+
+english模块添加了两个pub use语句后，两个问候函数就提升到english空间中去了，我们可以用phrases::english::hello()来代替phrases::english::greetings::hello()
+
 
