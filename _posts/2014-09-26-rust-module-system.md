@@ -86,6 +86,9 @@ pub mod chinese {
 
 <img src="/images/rust-mod-tree.png" width="400px" height="210px"/>
 
+* phrases::chinese::greetings::everyone_will_know_you()                -> 天下谁人不识君
+* use phrases::chinese; chinese::greetings::everyone_will_know_you()  -> 天下谁人不识君
+* use phrases::chinese::greetings; greetings::everyone_will_know_you() -> 天下谁人不识君
 
 
 ### 打散命名空间
