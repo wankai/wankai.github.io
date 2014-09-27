@@ -173,4 +173,4 @@ english模块添加了两个pub use语句后，两个问候函数就提升到eng
 
 5. "mod mod-name;" 可以指导编译器将多个文件组装成一个文件
 
-6. "pub use mod-nam1::mod-name2::item-name" 语句可以将mod-name2下的item-name提升到这条语句所在的空间，item-name通常是函数或者结构体。Rust社区通常用这个方法来减少库API的命名空间深度
+6. "pub use mod-nam1::mod-name2::item-name" 语句可以将mod-name2下的item-name提升到这条语句所在的空间，item-name通常是函数或者结构体。Rust社区通常用这个方法来缩短库API的命名空间深度
