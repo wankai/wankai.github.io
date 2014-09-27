@@ -31,21 +31,56 @@ pub fn hello() {
 运行 `rustc greeting.rs --crate-type=lib` 会生成同名的库libgreeting.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
 
 ### 引入命名空间
-Rust的模块就是命名空间，用关键词`mod`表示。它的作用是把一个crate的代码划分成可管理的部分。
+Rust的模块就是命名空间，用关键词`mod`表示。它的作用是把一个crate的代码划分成可管理的部分。每一个crate都有一个顶层的匿名根命名空间, 根空间下面的命名空间可以任意嵌套，这样构成一个树形的空间结构。
 
-``` greeting.rs
-pub mod english {
-    pub fn hello() {
-        println("hello, english world")
-    }
-}
-pub mod chinese {
-    pub fn hello() {
-        println("hello, chinese world")
-    }
-}
+假设我们接到一个项目，制作一个包含各国语言日常用语的程序库。
+
+* 首先，这个库应该按国家名去组织，中俄日美等都给他们划分出一个模块
+* 日常用语有很多，如果我们想把代码组织得清晰一点，还可以按照使用场景再划分一次，比如有用于问候的（“你好”、“吃了么”），有用语离别的（“再见”，“天下谁人不识君”）
+
+根据以上两点分析，我们代码库组织如下，以中英两种语言为例
+
 ```
-每一个crate
+// greeting.rs
+pub mod english {
+    pub mod greetings {
+        fn hello() {
+            println!("Hello!")
+        }
+        fn guies() {
+           println!("Hey, guies!")
+        }
+    }
+    pub mod farewells {
+        fn goodbye() {
+            println!("Goodbye!")
+        }
+        fn see_you() {
+            println!("See you!")
+        }
+    }
+}
+
+pub mod chinese {
+    pub mod greetings {
+        fn hello() {
+            println!("你好!")
+        }
+        fn eat() {
+            println!("吃了么?")
+        }
+    }
+    pub mod farewells {
+        fn goodbye() {
+            println!("再见!")
+        }
+        fn everyone_know_you() {
+            println("天下谁人不识君!")
+        }
+    }
+}
+
+```
 
 
 
