@@ -17,20 +17,20 @@ Rust编译器只接受一个.rs文件作为输入，并且只生成一个crate�
 生成的crate分两种，源文件中有main函数会生成可执行文件，无main函数则生成库。
 
 ```
-// greeting.rs
+// hello.rs
 fn main() {
     println!("hello, rust");
 }
 ```
-运行`rustc greeting.rs`会生成同名的可执行文件greeting
+运行`rustc hello.rs`会生成同名的可执行文件hello
 
 ```
-// greeting.rs
+// hello.rs
 pub fn hello() {
     println!("hello, rust");
 }
 ```
-运行 `rustc greeting.rs --crate-type=lib` 会生成同名的库libgreeting.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
+运行 `rustc hello.rs --crate-type=lib` 会生成同名的库libhello.rlib。函数前面多了一个关键词pub，如果不加的话编译器会告警，说“你这个库啥public的东西都没有，让别人用毛啊”。恩，Rust编译器还是很贴心的。
 
 ### 引入命名空间
 Rust的模块就是命名空间，用关键词`mod`表示。它的作用是把一个crate的代码划分成可管理的部分。每一个crate都有一个顶层的匿名根命名空间, 根空间下面的命名空间可以任意嵌套，这样构成一个树形结构。
