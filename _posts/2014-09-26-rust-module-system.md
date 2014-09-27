@@ -12,7 +12,14 @@ date: 2014-09-25
 
 
 ### 编译
-Rust编译器只接受一个.rs文件作为输入，并且只编译出一个crate。有两种crate，库和可执行文件。
+Rust编译器只接受一个.rs文件作为输入，并且只生成一个crate。
 
 <img src="/images/rustc.png" width="450px" height="140px" />
 
+有两种crate，可执行文件和库，源文件中有main函数则生成可执行文件，没有则生成库。
+
+```
+fn main() {
+    println!("hello, rust");
+}
+```
