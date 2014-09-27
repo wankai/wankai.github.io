@@ -12,6 +12,7 @@ date: 2014-09-25
 
 
 ### 编译
-Rust编译器只接受一个.rs文件作为输入，并且只编译出一个crate
+Rust编译器只接受一个.rs文件作为输入，并且只编译出一个crate。有两种crate，库和可执行文件。
 
+<img src="/images/rustc.png" />
 
