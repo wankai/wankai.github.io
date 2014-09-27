@@ -155,6 +155,7 @@ pub fn see_you() {
     println!("See you!")
 }
 ```
+chinese模块我就不写了，类比english模块
 
 
 
