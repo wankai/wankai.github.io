@@ -25,5 +25,7 @@ fn main() {
 }
 ```
 > rustc hello.rs
+
 > ls -l
+
 > -rwxr-xr-- 1 wankai staff 706832 9 27 14:34 hello
