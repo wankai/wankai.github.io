@@ -47,7 +47,7 @@ pub mod english {
         pub fn hello() {
             println!("Hello!")
         }
-        pub fn guies() {
+        pub fn hey_guies() {
            println!("Hey, guies!")
         }
     }
@@ -125,7 +125,7 @@ pub fn hello() {
     println!("Hello!");
 }
 
-pub fn guies() {
+pub fn hey_guies() {
     println!("Hey, guies!")
 }
 ```
@@ -153,13 +153,15 @@ pub fn see_you() {
 // english/mod.rs
 
 pub use self::greetings::hello;
-pub use self::greetings::goodbye;
+pub use self::greetings::hey_guies;
 
 pub mod greetings;
 pub mod farewells;
 ```
 
 english模块添加了两个pub use语句后，两个问候函数就提升到english空间中去了，我们可以用phrases::english::hello()来代替phrases::english::greetings::hello()
+
+最终完整的phrases项目在[这里](http://github.com/wankai/rust-module-example)
 
 
 ### 总结
@@ -178,3 +180,7 @@ english模块添加了两个pub use语句后，两个问候函数就提升到eng
 7. "pub use mod-nam1::mod-name2::item-name;" 语句可以将mod-name2下的item-name提升到这条语句所在的空间，item-name通常是函数或者结构体。Rust社区通常用这个方法来缩短库API的命名空间深度
 
 8. 编译器规定use语句一定要在mod语句之前
+
+### 参考资料
+
+* [module guide written by steveklabnik](https://github.com/steveklabnik/rust/blob/module_guide/src/doc/guide-crates.md)
