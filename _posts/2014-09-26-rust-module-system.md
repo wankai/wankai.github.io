@@ -84,7 +84,7 @@ pub mod chinese {
 
 运行 `rustc phrases.rs --crate-type=lib` 得到一个程序库，其模块树形图如下
 
-<img src="/images/rust-mod-tree.png" />
+<img src="/images/rust-mod-tree.png" width="400px" height="210px"/>
 
 
 
