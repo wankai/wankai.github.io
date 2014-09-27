@@ -103,5 +103,34 @@ farewells::everyone_will_know_you();
 
 ### 打散命名空间
 
+好，我们已经学会使用命名空间了，但是所有的代码都在`phrases.rs`这一个文件中，这在生产环境中显然是不能容忍的。还好Rust编译器给我提供了将单个文件分拆成多个文件的机制。
+
+我们把phrases.rs改成如下，编译器每次看到 "mod <mod-name>;"这条语句时都会去找相应地文件。我们可以理解为，编译器把若干个文件合并成一个文件。
+
+```
+// filename: phrases.rs
+pub mod english;	// 查找当前目录下的english.rs或者english目录下的mod.rs
+pub mod chinese;	// 查找当前目录下的chinese.rs或者chinese目录下的mod.rs
+```
+
+``` 
+// filename: english/mod.rs
+pub mod greetings;	// 查找当前目录下的greetings.rs或者greetings目录下的mod.rs
+pub mod farewells;	// 查找当前目录下的farewells.rs或者farewells目录下的mod.rs
+```
+
+```
+// english/greetings.rs
+pub fn hello() {
+    println!("Hello!");
+}
+
+pub fn guies() {
+    println!("Hey, guies!")
+}
+```
+
+
+
 ### 提升命名空间
 
