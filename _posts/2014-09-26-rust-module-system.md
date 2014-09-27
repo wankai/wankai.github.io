@@ -16,8 +16,6 @@ Rust编译器只接受一个.rs文件作为输入，并且只生成一个crate�
 
 生成的crate分两种，源文件中有main函数会生成可执行文件，无main函数则生成库。
 
-<strong>可执行文件</strong>
-
 ``` hello.rs
 fn main() {
     println!("hello, rust");
@@ -25,11 +23,9 @@ fn main() {
 ```
 运行`rustc hello.rs`会生成同名的可执行文件hello
 
-<strong>库</strong>
-
 ``` hello.rs
 fn hello() {
     println!("hello, rust");
 }
 ```
-运行`rustc hello.rs --lib`会生成同名的库
+运行 `rustc hello.rs --lib` 会生成同名的库
