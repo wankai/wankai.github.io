@@ -167,10 +167,10 @@ english模块添加了两个pub use语句后，两个问候函数就提升到eng
 
 2. 编译：Rust编译器只接受一个源文件，输出一个crate
 
-3. "mod mod-name { ...  }" 能将内容包在mod-name中
+3. "mod mod-name { ...  }" 将大括号中得代码置于命名空间mod-name之下
 
-4. "use mod-name1::mod-name2" 可以打开命名空间，减少不必要的代码
+4. "use mod-name1::mod-name2" 可以打开命名空间，减少无休止的::操作符
 
-5. "mod mod-name;" 语句可以指导编译器将多个文件组装成一个文件
+5. "mod mod-name;" 可以指导编译器将多个文件组装成一个文件
 
-6. "pub use mod-nam1::mod-name2::item-name" 语句可以将mod-name2下的item-name提升到这条语句所在的空间，item-name通常是函数或者结构体。
+6. "pub use mod-nam1::mod-name2::item-name" 语句可以将mod-name2下的item-name提升到这条语句所在的空间，item-name通常是函数或者结构体。Rust社区通常用这个方法来减少API的命名空间深度
