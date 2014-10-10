@@ -7,8 +7,8 @@ title: "raft串讲"
 
 Raft是一种分布式一致性协议，对于开发大规模分布式系统至关重要。 
 
-<p>1. 背景介绍</p>
-<p>&nbsp;&nbsp;&nbsp;1.1. 互联网服务与高可用</p>
+<p><a href="#introduction">1. 背景介绍</a></p>
+<p>&nbsp;&nbsp;&nbsp; 1.1. 互联网服务与高可用</p>
 <p>&nbsp;&nbsp;&nbsp;1.2. 单机系统</p>
 <p>&nbsp;&nbsp;&nbsp;1.3. 备份容错</p>
 <p>2. 基本协议</p>
@@ -18,3 +18,5 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 <p>3. 集群变更</p>
 <p>4. 日志紧缩</p>
 <p>5. 客户端交互</p>
+
+<h2 id="introduction">背景介绍</h2>
