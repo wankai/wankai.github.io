@@ -9,8 +9,8 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 
 <p><a href="#introduction">1. 背景介绍</a></p>
 <p>&nbsp;&nbsp;&nbsp; <a href="#internet-and-ha">1.1. 互联网服务与高可用</a></p>
-<p>&nbsp;&nbsp;&nbsp;1.2. 单机系统</p>
-<p>&nbsp;&nbsp;&nbsp;1.3. 备份容错</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="#single-device">1.2. 单机系统</a></p>
+<p>&nbsp;&nbsp;&nbsp; <a href="#replication">1.3. 备份容错</a></p>
 <p>2. 基本协议</p>
 <p>&nbsp;&nbsp;&nbsp;2.1. 选举</p>
 <p>&nbsp;&nbsp;&nbsp;2.2. 日志备份</p>
@@ -33,6 +33,6 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 
 <img src="/images/availability.png" with="389px" height="168px"/>
 
-<h4 id="single-device">单机系统</h4>
+<h4 id="single-device">1.2 单机系统</h4>
 
-<h4 id="replication">备份容错</h4>
+<h4 id="replication">1.3 备份容错</h4>
