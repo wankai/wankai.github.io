@@ -27,4 +27,4 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 
 可用性 = (无故障运行时间 ) / (无故障运行时间 + 故障修复时间) * 100%，通常用几个9来表示，下表是一年内各种可用性对应的故障修复时间
 
-<img src="/images/availability.png" />
+<img src="/images/availability.png" with="324px" height="140px"/>
