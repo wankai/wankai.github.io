@@ -20,3 +20,4 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 <p>5. 客户端交互</p>
 
 <h3 id="introduction">1. 背景介绍</h3>
+<h4 id="internet-and-ha">互联网服务与高可用</h4>
