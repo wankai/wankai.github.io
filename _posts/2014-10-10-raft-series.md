@@ -41,4 +41,6 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 
 <img src="/images/single-state-machine.png" width="380px" height="307px"/>
 
+单机系统的故障恢复时间就是日志replay的耗时。随着系统的运行，日志会越来越长，恢复耗时也越来越长，可用性随之降低。我们通常用snapshot方法解决日志过长导致可用性降低的问题，Redis正是如此。
+
 <h4 id="replication">1.3 多机系统</h4>
