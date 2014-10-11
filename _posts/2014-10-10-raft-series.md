@@ -13,7 +13,7 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#replication">1.3. 多机系统</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#enter-raft">1.4. Raft出场</a></p>
 <p><strong><a href="#raft-basics">2. 基本协议</a></strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1. 选举</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#rsm">2.1. 选举</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. 日志备份</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3. 正确性</p>
 <p><strong>3. 集群变更</strong></p>
@@ -66,6 +66,8 @@ Raft集群由N个服务组成，他们运行着相同的Raft协议，部署在�
 
 到此，大家应该知道了Raft存在的意义。至于Raft是怎么在容错(N-1)/2的情况下兼顾可用性和一致性，那正是本文的核心内容。可以说弄懂Raft协议是颇费精力的，请跟我来。
 
-<h3 id="raft-basics">2. 及本协议</h3>
+<h3 id="raft-basics">2. 基本协议</h3>
 
+各位从目录可以看到，Raft协议包括很多方面，我们先看最基础的协议。后面几节会阐述Raft的其他方面，可能会对基础协议做一些修改，但是理解基础协议是根本。本节先从复制状态机的角度俯瞰Raft集群的行为，然后分别阐述选举、日志复制以及协议的正确性。
 
+<h4 id="rsm">2.1 复制状态机</h4>
