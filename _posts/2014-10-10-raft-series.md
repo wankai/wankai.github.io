@@ -10,7 +10,8 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 <p><strong><a href="#introduction">1. 背景介绍</a></strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#internet-and-ha">1.1. 互联网服务与高可用</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#single-device">1.2. 单机系统</a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#replication">1.3. 备份容错</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#replication">1.3. 多机系统</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#distributed-consensus">1.4. 分布式一致性</a></p>
 <p><strong>2. 基本协议</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1. 选举</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. 日志备份</p>
@@ -54,4 +55,6 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 1. 异步复制，能提高可用性，但是可能导致数据不一致
 2. 同步复制，数据是一致的，但是根本不提高可用性
 
-一致性和可用性，鱼和熊掌不可得兼吗？未必，轮到分布式一致性协议出场了。本文的主角Raft协议正是分布式一致性协议的一种，它能让我们手握熊掌吃烤鱼，是很多大型分布式系统不可获取的角色。
+一致性和可用性，鱼和熊掌不可得兼吗？未必，轮到分布式一致性协议出场了。本文的主角Raft协议正是分布式一致性协议的一种，它能让我们手握熊掌吃烤鱼。
+
+<h4 id="distributed-consensus">1.4 分布式一致性</h4>
