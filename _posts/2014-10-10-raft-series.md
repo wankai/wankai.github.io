@@ -39,6 +39,6 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 
 互联网业务是不允许单点服务的，但是单机服务是分布式服务的基础。以Redis为例，它是一个非常典型的单机系统。Redis的数据都在内存中，为了持久化和可靠性，每一条更新操作都会先写入日志，然后再修改内存中的数据。我们把Redis服务抽象成状态机:
 
-<img src="/images/single-state-machine.png" />
+<img src="/images/single-state-machine.png" width="380px" height="307px"/>
 
 <h4 id="replication">1.3 多机系统</h4>
