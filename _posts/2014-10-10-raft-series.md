@@ -13,9 +13,10 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#replication">1.3. 多机系统</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#enter-raft">1.4. Raft出场</a></p>
 <p><strong><a href="#raft-basics">2. 基本协议</a></strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#rsm">2.1. 选举</a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. 日志备份</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3. 正确性</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#rsm">2.2. 复制状态机</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#leader-election">2.2. 选举</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="log-replication">2.3. 日志备份</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="safety">2.3. 正确性</a></p>
 <p><strong>3. 集群变更</strong></p>
 <p><strong>4. 日志紧缩</strong></p>
 <p><strong>5. 客户端交互</strong></p>
@@ -71,3 +72,6 @@ Raft集群由N个服务组成，他们运行着相同的Raft协议，部署在�
 各位从目录可以看到，Raft协议包括很多方面，我们先看最基础的协议。后面几节会阐述Raft的其他方面，可能会对基础协议做一些修改，但是理解基础协议是根本。本节先从复制状态机的角度俯瞰Raft集群的行为，然后分别阐述协议的三大核心，即选举、日志复制和正确性。
 
 <h4 id="rsm">2.1 复制状态机</h4>
+<h4 id="leader-election">2.2 选举</h4>
+<h4 id="log-replication">2.3 日志复制</h4>
+<h4 id="safety">2.4 正确性</h4>
