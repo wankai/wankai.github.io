@@ -12,7 +12,7 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#single-device">1.2. 单机系统</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#replication">1.3. 多机系统</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#enter-raft">1.4. Raft出场</a></p>
-<p><strong>2. 基本协议</strong></p>
+<p><strong><a href="#raft-basics">2. 基本协议</a></strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1. 选举</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. 日志备份</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3. 正确性</p>
@@ -65,3 +65,7 @@ Raft将同步复制和异步复制结合起来，化解了一致性和可用性�
 Raft集群由N个服务组成，他们运行着相同的Raft协议，部署在不同的机器上，互相通信。主服务每次复制日志时，要求超过半数的机器（包括自己）是同步复制，其余的同步异步皆可。举个例子，如果集群有5台机器，主服务要把操作日志复制到剩下4台机器上，要求4台中至少2台是同步复制，其余的随便。从Raft的复制策略可以看出，它要求至少一半以上的服务是存活的，即容错(N-1)/2。当主服务宕掉时，剩下的服务会自动选出新的主，并且保证数据是一致的。
 
 到此，大家应该知道了Raft存在的意义。至于Raft是怎么在容错(N-1)/2的情况下兼顾可用性和一致性，那正是本文的核心内容。可以说弄懂Raft协议是颇费精力的，请跟我来。
+
+<h3 id="raft-basics">2. 及本协议</h3>
+
+
