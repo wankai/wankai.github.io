@@ -73,9 +73,9 @@ Raft协议包括很多方面，我们先看最基础的协议。后面几节会�
 
 <h4 id="rsm">2.1 复制状态机</h4>
 
-前面说过，单机系统可以看成是一个状态机。Raft集群则可以看成多个状态机的集合，并且每个状态机的状态变迁过程是完全一样的，用理论术语叫复制状态机。
+前面说过，单机系统可以看成是一个状态机。Raft集群则可以看成多个状态机的集合，并且每个状态机的状态变迁过程是完全一样的，用理论术语叫复制状态机（Replicated State Machine）。
 
-<img src="/images/replicated-statemachine.png" />
+<img src="/images/replicated-statemachine.png" width="390px" height="256px" />
 
 复制状态机发法
 <h4 id="leader-election">2.2 选举</h4>
