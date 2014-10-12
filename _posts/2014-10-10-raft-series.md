@@ -85,6 +85,7 @@ Raft协议包括很多方面，我们先看最基础的协议。后面几节会�
 
 <h4 id="leader-election">2.2 选举</h4>
 
-Raft集群是有一个主服务的，也称leader，所有的客户端请求都会被重定向到leader。
+Raft集群是有一个主服务的，也称leader，其余的成为follower，所有的客户端请求都会被重定向到leader，由leader负责把日志复制给follower。
+
 <h4 id="log-replication">2.3 日志复制</h4>
 <h4 id="safety">2.4 正确性</h4>
