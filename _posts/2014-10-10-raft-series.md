@@ -13,7 +13,7 @@ Raft是一种分布式一致性协议，对于开发大规模分布式系统至�
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#replication">1.3. 多机系统</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#enter-raft">1.4. Raft出场</a></p>
 <p><strong><a href="#raft-basics">2. 基本协议</a></strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#rsm">2.2. 复制状态机</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#rsm">2.1. 复制状态机</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#leader-election">2.2. 选举</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="log-replication">2.3. 日志备份</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="safety">2.3. 正确性</a></p>
@@ -77,7 +77,11 @@ Raft协议包括很多方面，我们先看最基础的协议。后面几节会�
 
 <img src="/images/replicated-statemachine.png" width="390px" height="256px" />
 
-**复制状态机**提供了解决容错问题的全景视角。
+**复制状态机**提供了解决容错问题的全景视角。每个服务都是一个状态机，服务运行的过程即是状态的变迁，操作日志决定了变迁序列。Raft就是要保证
+
+1. 每个服务的日志都是一样的
+2. 日志中的操作作用于状态的顺序也是一样的
+3. 应答客户端前，要保证当前操作及前面的操作都已经作用于状态机
 
 <h4 id="leader-election">2.2 选举</h4>
 <h4 id="log-replication">2.3 日志复制</h4>
