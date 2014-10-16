@@ -5,7 +5,9 @@ title: "raft串讲"
 
 ## Raft串讲
 
-Raft是一种分布式一致性协议，对于开发大规模分布式系统至关重要。 
+<h2 id="preface">前言</h2>
+
+本文不识图精确地描述Raft协议，而是提供一种不同的视角帮助大家加深对Raft协议的理解。建议读者将此文与论文对照着看。
 
 <p><strong><a href="#introduction">1. 背景介绍</a></strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#internet-and-ha">1.1. 互联网服务与高可用</a></p>
@@ -85,7 +87,38 @@ Raft协议包括很多方面，我们先看最基础的协议。后面几节会�
 
 <h4 id="leader-election">2.2 选举</h4>
 
-Raft集群是有一个主服务的，也称leader，其余的成为follower，所有的客户端请求都会被重定向到leader，由leader负责把日志复制给follower。
+Raft的选举机制保证同一时刻只有一个能commit操作的leader。5台机器的集群中是有可能存在3个状态为leader的服务的，但是只有一个是真正的leader，另外两个称为过期的leader。
+
+"同一时刻只有一个能commit操作的leader"，我们来证明这个性质:
+
+推论1：同一个term最多只有一个leader
+
+```
+假设有两个leader有相同的term，为L1, L2
+那么必定有一个server，在选举时，既投给了L1又投给了L2
+与“一个server对一个term只能投一次票”的机制矛盾
+
+所以推论得证
+```
+
+推论2：如果集群中存在一个leader，为L，那么集群中至少过半数服务的term >= term(L)
+```
+假设超过半数服务的term < term(L)
+因为L被过半数的服务投过票，所以这些服务的term在投给L后立即设置为term(L)
+所以在当时，至少过半数服务的term  = term(L)
+又因为Raft的term只增不减
+所以，至少过半数服务的term >= term(L)
+```
+
+定理： 任意时刻只有一个能commit操作的leader
+```
+假设某一时刻，有两个leader可以commit操作，分别为L1、 L2
+根据推论1，term(L1) != term(L2)，不妨设 term(L1) < term(L2)
+又根据推论2，集群中至少过半数服务term >= term(L2)
+所以，L1找不到过半数的服务同意自己的commit请求
+所以，L1不能commit操作
+与假设矛盾，命题得证。
+```
 
 <h4 id="log-replication">2.3 日志复制</h4>
 <h4 id="safety">2.4 正确性</h4>
