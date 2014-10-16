@@ -91,7 +91,7 @@ Raft的选举机制保证同一时刻只有一个能commit操作的leader。5台
 
 "同一时刻只有一个能commit操作的leader"，我们来证明这个性质:
 
-推论1：同一个term最多只有一个leader
+<strong>推论1：同一个term最多只有一个leader</strong>
 
 ```
 假设有两个leader有相同的term，为L1, L2
@@ -101,7 +101,8 @@ Raft的选举机制保证同一时刻只有一个能commit操作的leader。5台
 所以推论得证
 ```
 
-推论2：如果集群中存在一个leader，为L，那么集群中至少过半数服务的term >= term(L)
+<strong>推论2：如果集群中存在一个leader，为L，那么集群中至少过半数服务的term >= term(L)</strong>
+
 ```
 假设超过半数服务的term < term(L)
 因为L被过半数的服务投过票，所以这些服务的term在投给L后立即设置为term(L)
@@ -110,7 +111,8 @@ Raft的选举机制保证同一时刻只有一个能commit操作的leader。5台
 所以，至少过半数服务的term >= term(L)
 ```
 
-定理： 任意时刻只有一个能commit操作的leader
+<strong>定理： 任意时刻只有一个能commit操作的leader</strong>
+
 ```
 假设某一时刻，有两个leader可以commit操作，分别为L1、 L2
 根据推论1，term(L1) != term(L2)，不妨设 term(L1) < term(L2)
