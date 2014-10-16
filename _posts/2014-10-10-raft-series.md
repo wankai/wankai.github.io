@@ -122,5 +122,11 @@ Raft的选举机制保证同一时刻只有一个能commit操作的leader。5台
 与假设矛盾，命题得证。
 ```
 
+<strong>总结</strong>
+
+Raft集群中最多只有一个有效leader，当leader挂掉时会产生一个新leader，Raft保证这个新leader继承了上一代leader的全部意志。就像是一个人的灵魂不死，当肉身死去时，赶紧转移到一个新肉身，于是就容错了。
+
 <h4 id="log-replication">2.3 日志复制</h4>
+
+
 <h4 id="safety">2.4 正确性</h4>
