@@ -40,6 +40,6 @@ TAbstractNonBlockingServer是所有非阻塞服务的基类，同时它本身继
 
 把TNonblockingServer的业务处理移到单独的线程中去了，防止业务处理阻塞网络IO
 
-### TThreadedSelectServer
+### TThreadedSelectorServer
 
 在THsHaServer的基础上，将连接监听单独放在一个线程。
