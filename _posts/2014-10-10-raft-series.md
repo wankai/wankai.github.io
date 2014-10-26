@@ -87,9 +87,9 @@ Raft协议包括很多方面，我们先看最基础的协议。后面几节会�
 
 <h4 id="leader-election">2.2 选举</h4>
 
-Raft的选举机制保证同一时刻只有一个能commit操作的leader。5台机器的集群中是有可能存在3个状态为leader的服务的，但是只有一个是真正的leader，另外两个称为过期的leader。
+Raft的选举机制保证同一时刻最多只有一个能commit操作的leader。5台机器的集群中是有可能存在3个状态为leader的服务的，但是只有一个是真正的leader，另外两个称为过期的leader。
 
-"同一时刻只有一个能commit操作的leader"，我们来证明这个性质:
+"同一时刻最多只有一个能commit操作的leader"，我们来证明这个性质:
 
 <strong>推论1：同一个term最多只有一个leader</strong>
 
@@ -101,32 +101,47 @@ Raft的选举机制保证同一时刻只有一个能commit操作的leader。5台
 所以推论得证
 ```
 
-<strong>推论2：如果集群中存在一个leader，为L，那么集群中至少过半数服务的term >= term(L)</strong>
+<strong>推论2：如果集群中存在一个leader，为L，那么集群中过半的term >= term(L)</strong>
 
 ```
-假设超过半数服务的term < term(L)
+假设超过半的term < term(L)
 因为L被过半数的服务投过票，所以这些服务的term在投给L后立即设置为term(L)
-所以在当时，至少过半数服务的term  = term(L)
+所以在当时，至少过半的term = term(L)
 又因为Raft的term只增不减
-所以，至少过半数服务的term >= term(L)
+所以，有过半的term >= term(L)
+
+得证
 ```
 
-<strong>定理： 任意时刻只有一个能commit操作的leader</strong>
+<strong>推论3：如果某一时刻，leader L能commit，那么此时有过半的term = term(L)
+
+```
+根据提交机制，可得出有过半数服务的term <= term(L)
+又根据推论2，得出过半的term >= term(L)
+所以有过半的term，满足term(L) <= term <= term(L)，即term = term(L)
+
+得证
+```
+
+<strong>定理： 任意时刻只有一个能commit的leader</strong>
 
 ```
 假设某一时刻，有两个leader可以commit操作，分别为L1、 L2
-根据推论1，term(L1) != term(L2)，不妨设 term(L1) < term(L2)
-又根据推论2，集群中至少过半数服务term >= term(L2)
-所以，L1找不到过半数的服务同意自己的commit请求
-所以，L1不能commit操作
-与假设矛盾，命题得证。
+根据推论1，term(L1) != term(L2)
+L1能commit，根据推论2，有过半的term，满足term = term(L1)
+L2能commit，根据推论2，有过半的term，满足term = term(L2)
+所以必定存在一个S，满足 term(S) = term(L1) = term(L2)，即term(L1) = term(L2)
+与term(L1) != term(L2)矛盾
+
+命题得证。
 ```
 
 <strong>总结</strong>
 
-Raft集群中最多只有一个有效leader，当leader挂掉时会产生一个新leader，Raft保证这个新leader继承了上一代leader的全部意志。就像是一个人的灵魂不死，当肉身死去时，赶紧转移到一个新肉身，于是就容错了。
+Raft集群中最多只有一个有效leader，当leader挂掉时会产生一个新leader，Raft保证这个新leader继承了上一代leader的全部意志。好比一个人的灵魂不死，当肉身死去时，赶紧转移到一个新肉身，于是就容错了。
 
 <h4 id="log-replication">2.3 日志复制</h4>
 
+leader不断的将自己的日志增量复制给follower，命令follower与自己保持一致。
 
 <h4 id="safety">2.4 正确性</h4>
