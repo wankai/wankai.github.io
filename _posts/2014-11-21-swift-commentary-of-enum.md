@@ -55,6 +55,7 @@ North ... West可以看成是单例的类。比如North，表明类型是North�
 在朴素应用中，North ... West的值就是自己，而不是和C/Java那样的数值。有时候我们希望枚举是一个值
 
 可以是数值
+
 ```swift
 enum CompassPoint : Int {
     case North = 1
