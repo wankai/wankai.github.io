@@ -76,8 +76,17 @@ Raw Value还可以是String, Character, Float, Double类型的。枚举的每个
 ## 总结
 
 * Swift枚举就是Tagged Unions
+
 * 枚举是值拷贝的
+
+* 枚举不能在继承树中
+
+* 枚举不能带stored properties
+
 * 枚举的空间应该是以最大值为准的（未证实）
+
 * 枚举可以带Raw Value，但必须是基本类型，并且构造时返回的是Optional Type
+
 * 枚举名可以作为命名空间。当编译器可以类型推断时，命名空间可省略
-* Pattern-Match时，let和var如果全部一致，可以提到枚举名前面
+
+* pattern match时，let和var如果全部一致，可以提到枚举名前面
