@@ -21,13 +21,16 @@ enum BarCode {
     case QRCode(String)
 }
 
-var productCode = BarCode.UPCA(8, 85909, 51226, 3)	// 枚举名BarCode起命名空间的作用
-productCode = Barcode.QRCode("ABCDEFGHIJKLMNOP")	// 当类型可以推断时，枚举名可以省略
+// 枚举名BarCode可以起命名空间的作用
+var productCode = BarCode.UPCA(8, 85909, 51226, 3)
+
+// 当编译器可以推断类型时，命名空间可省略
+productCode = Barcode.QRCode("ABCDEFGHIJKLMNOP")
 
 // 用pattern match提取出封装的值
 switch productCode {
-    case .UPCA(let numberSystem, let manufactureCode, let productCode, let check):
-        println("UPC-A: \(numberSystem), \(manufactureCode, \(productCode), \(check).")
+    case .UPCA(let system, let manufacturer, let product, let check):
+        println("UPC-A: \(system),\(manufacturer,\(product),\(check).")
     case .QRCode(let productCode):
         println("QR code: \(productCode)")
 }
