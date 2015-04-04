@@ -42,6 +42,7 @@ static delayed_callback *g_cbs_tail = NULL;
 ```
 
 回调队列是线程安全的，应用线程想往队列添加回调对象，可使用如下接口
+
 ```c
 // 传入的success一定为1，为普通函数设计
 void grpc_iomgr_add_callback(grpc_iomgr_cb_func, void* cb_arg);
