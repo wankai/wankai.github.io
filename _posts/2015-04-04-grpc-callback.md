@@ -51,3 +51,12 @@ void grpc_iomgr_add_callback(grpc_iomgr_cb_func, void* cb_arg);
 void grpc_iomgr_add_delayed_callback(grpc_iomgr_cb_func, void* cb_arg, int success);
 ```
 
+## 执行机制
+
+gRPC框架初始化的时候，会创建一个消费者线程，从回调队列中取出回调对象并执行。但是一个执行线程显然是不够的，gRPC提供了一个接口，如果别的线程也想来扮演消费者的角色，可以在调用这个函数
+
+```
+// drop_mu: 如果应用线程是先加了一个锁，并且在执行回调过程中需要解锁，那么必须把锁传给此接口
+// success: 回调对象中已经有success成员了，这里是为了修改已有的值
+int grpc_maybe_call_delayed_callbacks(gpr_mu *drop_mu, int success);
+```
