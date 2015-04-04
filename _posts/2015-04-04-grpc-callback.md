@@ -12,3 +12,4 @@ gRPC的回调函数定义如下
 ``` c
 typedef void grpc_iomgr_cb_func(void* arg, int success);
 ```
+arg是外带参数，这是回调函数的通用设计。第二个参数success有点儿莫名其妙，其实这是为超时回调函数设计的。
