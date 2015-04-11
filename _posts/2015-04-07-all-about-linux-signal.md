@@ -4,7 +4,9 @@
 
 ## 洞察逻辑
 
-Linux内核代码有数百万行，看一本几百万字的小说就很考验读者，更何况是百万行的代码。并且内核的几百万行代码并不是线性的，而是相互联系的，这更是增加了内核的复杂性。如果一头扎进内核源代码，恐怕没游几米远就被淹死了。
+Linux内核代码有数百万行，看一本几百万字的小说就很考验读者，更何况是百万行的代码。并且内核的几百万行代码并不是线性的，而是相互联系的，这更是增加了内核的复杂性。如果一头扎进源代码，恐怕没游几米远就被淹死了。MIT有一本书专门阐述人类如何掌控复杂性：
+
+> Science and engineering, our modern ways of understanding and altering the world, are said to be about accuracy and precision. Yet we best master the complexity of our world by cultivating insight rather than precision.
 
 ## 回到原点
 
