@@ -8,6 +8,8 @@ Linux内核代码有数百万行，看一本几百万字的小说就很考验读
 
 > Science and engineering, our modern ways of understanding and altering the world, are said to be about accuracy and precision. Yet we best master the complexity of our world by cultivating insight rather than precision.
 
+科学技术是当代人类理解世界和改造世界的强有力武器。科学技术讲究精确和细节，但是真正帮助人们战胜复杂性的是洞察力。人类依靠洞察力把破碎的知识组成有机的整体，而精确的细节却会使人类的大脑过载。
+
 ## 回到原点
 
 
