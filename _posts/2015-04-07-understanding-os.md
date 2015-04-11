@@ -43,7 +43,7 @@ Linux内核代码有数百万行，看一本几百万字的小说已经很考验
 
 现代计算机架构，是冯诺依曼根据图灵机模型创建的，程序和数据不区分地放在内存中，由CPU存取。我们先认识一下CPU和内存这两个小伙伴
 
-<img src="http://wankai.github.io/images/cpu-memory.png" width="300" height="103" />
+<img src="http://wankai.github.io/images/cpu-memory.png" width="500" height="171" />
 
 ## 指令执行
 
