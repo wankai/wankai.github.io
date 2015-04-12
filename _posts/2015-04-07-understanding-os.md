@@ -45,9 +45,13 @@ Linux内核代码有数百万行，看一本几百万字的小说已经很考验
 
 <img src="http://wankai.github.io/images/cpu-memory.png" width="500" height="171" />
 
-现在CPU的制造正迈向14纳米，一元硬币大小的CPU集成了数十亿个晶体管，常人实在难以想象。内存也从KB到GB，如果你在一个土豪公司的话，恐怕用的都是96G内存的服务器，银行中的专用存储器可达TB。机器虽复杂，我们可以从模型上把握它，CPU和内存在我们脑中就是这样：
+现在CPU的制造正迈向14纳米，一元硬币大小的CPU集成了数十亿个晶体管，常人实在难以想象。内存也从KB到GB，如果你在一个土豪公司的话，恐怕用的都是96G内存的服务器，银行中的专用存储器可达TB。机器虽复杂，但我们可以从模型上把握它，CPU和内存在我们脑中就是这样：
 
 <img src="http://wankai.github.io/images/abstract-cpu-mem.png" width="400" height="229"/>
+
+机房服务器的CPU现在一般是多核的，再加上IO设备现在一般都用DMA芯片，所以我们把模型进一步扩展成如下
+
+<img src="http://wankai.github.io/images/multi-core-cpu-mem.png" width="400" height="229"/>
 
 ## 指令执行
 
