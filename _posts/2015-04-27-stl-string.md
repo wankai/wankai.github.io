@@ -37,3 +37,5 @@ struct _Rep_Base {
 template<typename _CharT, typename _Traits, typename _Alloc>
 class basic_string;
 ```
+
+STL声称容器和内存分配是分离的，但是Alloc都成了basic_string类型的一部分，这哪是分离啊，明明是合体嘛。
