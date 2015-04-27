@@ -12,10 +12,23 @@ class string {
   // 省略
  private:
   size_t length_;
-  size_t capcity_;
+  size_t capacity_;
   char* data_;
 };
 ```
 
 但是标准库并不是这样设计的，它有两个不同点
-* string只有`char* data`一个成员，其余的信息放在字符串指针前面，组成头部。
+* string只有`char* data`一个成员，其余的信息放在data前面，组成头部。于是string变成了一个非常轻量的类。
+* 支持Copy On Write机制，复制会延迟到写真正发生时。这需要往头部添加一个原子引用计数。
+
+于是string的头部结构体如下
+
+```c++
+struct _Rep_Base {
+  size_type _M_length;
+  size_type _M_capacity;
+  _Atomic_word _M_refcount;
+};
+```
+
+
