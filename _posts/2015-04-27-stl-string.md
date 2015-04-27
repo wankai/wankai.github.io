@@ -31,4 +31,9 @@ struct _Rep_Base {
 };
 ```
 
+## 把对象分配器暴露给类型合理吗？
 
+```c++
+template<typename _CharT, typename _Traits, typename _Alloc>
+class basic_string;
+```
