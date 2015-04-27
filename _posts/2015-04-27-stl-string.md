@@ -39,10 +39,12 @@ class basic_string;
 ```
 
 * 通过头部判断该字符串是否已经无用
+  
   _Rep::_M_is_leaked()
 
 * 通过头部判断该字符串是否被多人共享
-* _Rep::_M_is_shared()              //  
+  
+  _Rep::_M_is_shared() 
 * _Rep::_M_set_leaked()             // 设置无用标识
 * _Rep::_M_set_sharable()           // 标明该字符串正常可共享
 * _Rep::_M_set_length_and_sharable(size_type size)  // 空间已分配好，设置相关数据
