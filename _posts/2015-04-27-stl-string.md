@@ -31,6 +31,9 @@ struct _Rep_Base {
 };
 ```
 
+## string的长度有限制吗？
+最大长度为1G左右
+
 ## 把对象分配器暴露给类型合理吗？
 
 ```c++
@@ -38,22 +41,5 @@ template<typename _CharT, typename _Traits, typename _Alloc>
 class basic_string;
 ```
 
-* _Rep::_M_is_leaked()
-
-  通过头部判断该字符串是否已经无用
-
-* _Rep::_M_is_shared()
-
-  通过头部判断该字符串是否被多人共享
-  
-* _Rep::_M_set_leaked()
-
-  设置无用标识
-* _Rep::_M_set_sharable()
-
-  标明该字符串正常可共享
-* _Rep::_M_set_length_and_sharable(size_type size)
-  
-  空间已分配好，设置相关数据
 
 STL声称容器和内存分配是分离的，但是`Alloc`都成了`basic_string`类型的一部分，这哪是分离啊，明明是合体嘛。
