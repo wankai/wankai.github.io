@@ -26,6 +26,7 @@ Shell严肃编程
 
 在那个还没有GUI的年代，shell设计的初衷是成为操作系统与用户的接口，是套在操作系统上的一层壳，所以取名`shell`。所以从command-oriented的角度理解shell是最合理的，就像我们必须从procedure-oriented的角度理解c、从object-oriented的角度理解ruby一样。
 
+shell程序的基本组成单位是命令，形式如下
 ``` bash
 command arg1 arg2 arg3 ...
 ```
