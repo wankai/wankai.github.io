@@ -21,3 +21,7 @@ Shell严肃编程
 
 1. shell是面向命令的
 2. shell的类型系统极其弱
+
+### 面向命令
+
+在那个还没有GUI的年代，shell设计的初衷是成为操作系统与用户的接口，是套在操作系统上的一层壳，所以取名`shell`。所以从command oriented的角度理解shell是最合理的，就像我们必须从object oriented的角度理解ruby一样。
